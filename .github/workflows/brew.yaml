@@ -29,3 +29,6 @@ jobs:
       - name: Install package for scan
         run: Rscript -e 'install.packages(c("terra"), repos = "https://cran.rstudio.com/")'
 
+      - name: Get data
+        run: Rscript -e 'source("data-raw/DATASET.R", echo = TRUE)'
+

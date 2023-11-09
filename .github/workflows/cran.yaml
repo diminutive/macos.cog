@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [main]
 
-name: run-with-brew
+name: run-with-cran
 
 jobs:
   run1:
@@ -22,13 +22,12 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@v2
 
-      - name: Install XQuartz on macOS
-        if: runner.os == 'macOS'
-        run: brew install gdal
-
       - name: Install package for scan
         run: Rscript -e 'install.packages(c("terra"), repos = "https://cran.rstudio.com/")'
 
       - name: Get data
         run: Rscript -e 'source("data-raw/DATASET.R", echo = TRUE)'
+
+
+
 
