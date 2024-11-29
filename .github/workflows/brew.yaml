@@ -22,12 +22,12 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@v2
 
-      - name: Install XQuartz on macOS
+      - name: Install GDAL recent on macOS via brew
         if: runner.os == 'macOS'
         run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && brew install gdal --HEAD
 
       - name: Install package for scan
-        run: Rscript -e 'install.packages(c("terra"), repos = "https://cran.rstudio.com/")'
+        run: Rscript -e 'install.packages(c("terra"), type = "source")'
 
       - name: Get data
         run: Rscript -e 'source("data-raw/DATASET.R", echo = TRUE)'
