@@ -24,7 +24,7 @@ jobs:
 
       - name: Install XQuartz on macOS
         if: runner.os == 'macOS'
-        run: brew install gdal
+        run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && brew install gdal --HEAD
 
       - name: Install package for scan
         run: Rscript -e 'install.packages(c("terra"), repos = "https://cran.rstudio.com/")'
