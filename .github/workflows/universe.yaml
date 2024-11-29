@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [main]
 
-name: run-with-cran
+name: run-with-universe
 
 jobs:
   run1:
