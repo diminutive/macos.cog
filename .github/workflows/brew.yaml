@@ -24,7 +24,8 @@ jobs:
 
       - name: Install GDAL recent on macOS via brew
         if: runner.os == 'macOS'
-        run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && brew install gdal --HEAD
+        run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/35a44cc570cdf4dbd55611e4bd61da76e56bc221/Formula/g/gdal.rb
+
 
       - name: Install package for scan
         run: Rscript -e 'install.packages(c("terra"), type = "source")'
